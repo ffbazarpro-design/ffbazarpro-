@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BD Diamond Shop – FF Topup</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f0f2f8;--white:#fff;--purple:#6a0dad;--purple2:#9b30ff;--purple-light:#f3eeff;
+  --gold:#ffd700;--text:#1a1a2e;--muted:#777799;--green:#00a86b;
+  --card-shadow:0 2px 12px rgba(106,13,173,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Hind Siliguri',sans-serif;min-height:100vh;overflow-x:hidden}
+
+/* SECTION HEAD */
+.section-head{padding:22px 14px 12px;display:flex;align-items:center;gap:10px}
+.section-head h2{
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(16px,4vw,22px);
+  font-weight:900;
+  color:var(--text);
+  letter-spacing:2px
+}
+.section-head-line{flex:1;height:2px;background:linear-gradient(90deg,var(--purple),transparent)}
+
+/* CATEGORY GRID */
+.cat-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  padding:0 12px 20px;
+  max-width:640px;
+  margin:0 auto
+}
+
+/* CARD */
+.cat-card{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  border:1.5px solid #e8e0f8;
+  cursor:pointer;
+  transition:transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s;
+  box-shadow:var(--card-shadow);
+  animation:fadeUp .4s ease both
+}
+.cat-card:hover{
+  transform:translateY(-5px) scale(1.025);
+  box-shadow:0 10px 28px rgba(106,13,173,0.22)
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.cat-card:nth-child(1){animation-delay:.05s}
+.cat-card:nth-child(2){animation-delay:.10s}
+.cat-card:nth-child(3){animation-delay:.15s}
+.cat-card:nth-child(4){animation-delay:.20s}
+.cat-card:nth-child(5){animation-delay:.25s}
+.cat-card:nth-child(6){animation-delay:.30s}
+.cat-card:nth-child(7){animation-delay:.35s}
+
+/* IMAGE AREA — square 1:1 */
+.cat-thumb{
+  width:100%;
+  aspect-ratio:1/1;
+  position:relative;
+  overflow:hidden;
+  display:block;
+  background:#1a0a3e
+}
+.cat-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .3s ease
+}
+.cat-card:hover .cat-thumb img{
+  transform:scale(1.06)
+}
+
+/* Small brand badge top-right (like offertopup) */
+.cat-thumb::after{
+  content:'💎';
+  position:absolute;
+  top:5px;
+  right:6px;
+  font-size:10px;
+  background:rgba(0,0,0,0.45);
+  border-radius:4px;
+  padding:2px 4px;
+  z-index:2
+}
+
+/* LABEL */
+.cat-label{
+  padding:7px 7px 10px;
+  text-align:center;
+  font-size:clamp(9px,2.2vw,11.5px);
+  font-weight:700;
+  color:var(--text);
+  line-height:1.35
+}
+.cat-label small{
+  display:block;
+  font-size:9px;
+  color:var(--purple2);
+  font-weight:600;
+  margin-top:2px
+}
+
+/* Shimmer placeholder while image loads */
+.cat-thumb img{background:linear-gradient(90deg,#e8e0f8 25%,#f3eeff 50%,#e8e0f8 75%)}
+</style>
+</head>
+<body>
+
+<div class="section-head">
+  <h2>🎮 FREE FIRE</h2>
+  <div class="section-head-line"></div>
+</div>
+
+<div class="cat-grid">
+
+  <!-- CARD 1: Free Fire – 200 Like -->
+  <div class="cat-card" onclick="openCat('likes')">
+    <div class="cat-thumb">
+      <!--
+        🔁 GitHub থেকে image আসবে।
+        আপনার GitHub এ image upload করে নিচের URL replace করুন:
+        https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/like.png
+      -->
+      <img
+        src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/like.png"
+        alt="Free Fire 200 Like"
+        onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a1a1a,#3a0066)'"
+      >
+    </div>
+    <div class="cat-label">
+      Free Fire – 200 Like<br>প্রতিদিন
+      <small>প্রতিদিন ১ আইডিতে ১ বার</small>
+    </div>
+  </div>
+
+  <!-- CARD 2: UID TOPUP (BD) -->
+  <div class="cat-card" onclick="openCat('uid')">
+    <div class="cat-thumb">
+      <!--
+        URL: https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/uid.png
+      -->
+      <img
+        src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/uid.png"
+        alt="UID TOPUP BD"
+        onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#0d0033,#3a0066)'"
+      >
+    </div>
+    <div class="cat-label">
+      UID TOPUP (BD)
+      <small>সরাসরি একাউন্টে</small>
+    </div>
+  </div>
+
+  <!-- CARD 3: Weekly/Monthly Offer -->
+  <div class="cat-card" onclick="openCat('weekly')">
+    <div class="cat-thumb">
+      <!--
+        URL: https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/weekly.png
+      -->
+      <img
+        src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/weekly.png"
+        alt="Weekly Monthly Offer"
+        onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#001a33,#003366)'"
+      >
+    </div>
+    <div class="cat-label">
+      Weekly/Monthly<br>Offer
+      <small>অফার প্যাকেজ</small>
+    </div>
+  </div>
+
+  <!-- CARD 4: Weekly Lite (BD Server) -->
+  <div class="cat-card" onclick="openCat('wklite')">
+    <div class="cat-thumb">
+      <!--
+        URL: https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/wklite.png
+      -->
+      <img
+        src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/wklite.png"
+        alt="Weekly Lite BD Server"
+        onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#001a0d,#004d26)'"
+      >
+    </div>
+    <div class="cat-label">
+      Weekly Lite<br>(BD Server)
+      <small>BD Server</small>
+    </div>
+  </div>
+
+  <!-- CARD 5: E-Badge/Evo Access (BD) -->
+  <div class="cat-card" onclick="openCat('evo')">
+    <div class="cat-thumb">
+      <!--
+        URL: https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/evo.png
+      -->
+      <img
+        src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/evo.png"
+        alt="E-Badge Evo Access BD"
+        onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a0000,#4d0000)'"
+      >
+    </div>
+    <div class="cat-label">
+      E-Badge/Evo Access<br>(BD)
+      <small>Evolution Pass</small>
+    </div>
+  </div>
+
+  <!-- CARD 6: LEVEL UP PASS -->
+  <div class="cat-card" onclick="openCat('levelup')">
+    <div class="cat-thumb">
+      <!--
+        URL: https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/levelup.png
+      -->
+      <img
+        src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/levelup.png"
+        alt="Level Up Pass"
+        onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a0d00,#4d2600)'"
+      >
+    </div>
+    <div class="cat-label">
+      LEVEL UP PASS
+      <small>১ থেকে ৩০ পর্যন্ত</small>
+    </div>
+  </div>
+
+  <!-- CARD 7: Indonesia Server (UID) -->
+  <div class="cat-card" onclick="openCat('indo')">
+    <div class="cat-thumb">
+      <!--
+        URL: https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/indo.png
+      -->
+      <img
+        src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/indo.png"
+        alt="Indonesia Server UID"
+        onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#001a1a,#004d4d)'"
+      >
+    </div>
+    <div class="cat-label">
+      Indonesia Server<br>(UID)
+      <small>Indonesia Server</small>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function openCat(id){
+  // আপনার main HTML এর openCat() function এর সাথে connect করুন
+  alert('Category: ' + id);
+}
+</script>
+
+</body>
+</html>
+
